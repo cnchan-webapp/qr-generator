@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>本地免費 QR Code 生成器</title>
+    <!-- 載入 Cloudflare cdnjs 的 qrcodejs 庫 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #qrcode {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <h2>純前端本地 QR Code 生成器</h2>
+    <p>此二維碼完全由你的瀏覽器即時生成，安全且永不失效</p>
+
+    <!-- 放置 QR Code 的容器 -->
+    <div id="qrcode"></div>
+
+    <script>
+        // 初始化並生成 QR Code
+        var qrcode = new QRCode(document.getElementById("qrcode"), {
+            text: "https://www.google.com", // 想轉換的網址或文字
+            width: 200,                    // 寬度 (像素)
+            height: 200,                   // 高度 (像素)
+            colorDark : "#000000",         // 二維碼前景色（黑塊）
+            colorLight : "#ffffff",        // 二維碼背景色
+            correctLevel : QRCode.CorrectLevel.H // 容錯率 (L, M, Q, H)
+        });
+    </script>
+
+</body>
+</html>
